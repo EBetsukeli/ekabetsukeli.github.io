@@ -980,7 +980,7 @@ hr {
 
 #about .info-section .info-img img {
   background-color: transparent;
-  border-color: rgba(0, 0, 0, .18);
+  border-color: rgba(0, 0, 0, 0);
   width: 430px
 }
 
@@ -1068,7 +1068,7 @@ hr {
 @media (min-width:992px) and (max-width:1199.98px) {
   #about .info-section .info-img img {
     -o-object-fit: cover;
-    height: 440px;
+    height: 400px;
     object-fit: cover
   }
 
@@ -1727,7 +1727,7 @@ hr {
 #contact .contact-section .contact-form .form-group .form-control:-webkit-autofill:active,
 #contact .contact-section .contact-form .form-group .form-control:-webkit-autofill:focus,
 #contact .contact-section .contact-form .form-group .form-control:-webkit-autofill:hover {
-  -webkit-box-shadow: 0 0 0 1000px #0b0b0b inset;
+  -webkit-box-shadow: 0 0 0 1000px #F8F8F8 inset;
   -webkit-text-fill-color: #777 !important;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s
