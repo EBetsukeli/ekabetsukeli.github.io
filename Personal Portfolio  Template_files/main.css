@@ -418,6 +418,7 @@ hr {
 .lightbox-wrapper {
   background-color: #ffffff;
   position: fixed
+
 }
 
 .lightbox-wrapper .lightbox-close {
@@ -833,7 +834,7 @@ hr {
 .home-area {
   background-color: #ffffff;
   background-position: center center;
-  height: 100vh;
+  height: 140vh;
   overflow: hidden
 }
 
@@ -1875,4 +1876,15 @@ hr {
   #contact .contact-section .contact-info .info-description {
     font-size: 14px
   }
+}
+
+/* Galaxy Fold */
+@media (max-width: 540px) {
+    .navbar {
+      width:390px;
+}
+/* Galaxy Fold */
+@media (max-width: 320px) {
+    .navbar {
+      width:310px;
 }
