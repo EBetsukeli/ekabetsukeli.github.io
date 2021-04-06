@@ -1877,14 +1877,3 @@ hr {
     font-size: 14px
   }
 }
-
-/* Galaxy Fold */
-@media (max-width: 540px) {
-    .navbar {
-      width:390px;
-}
-/* Galaxy Fold */
-@media (max-width: 320px) {
-    .navbar {
-      width:310px;
-}
