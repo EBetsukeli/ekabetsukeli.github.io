@@ -1233,6 +1233,8 @@
     var p = /^#[a-zA-Z0-9][\w:.-]*$/;
     var v = "function" == typeof window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
 
+    
+    /*!Commenting out
     function m(t, e) {
       var n;
       switch (e) {
@@ -1546,7 +1548,7 @@
           })
         })
       }()
-    };
+    }; Commenting out */
 
     function _(t) {
       L(t), A(t)
