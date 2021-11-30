@@ -925,7 +925,7 @@
    * (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
    * Underscore may be freely distributed under the MIT license.
    * @license MIT
-   */
+  
   t.exports = function() {
     var t = {
         VERSION: "1.6.0-Webflow"
