@@ -1345,126 +1345,14 @@
         if (o) return o = !1, a && "mouseup" === t.type ? (t.preventDefault(), t.stopPropagation(), void(a = !1)) : void 0
       }
 
-      function f() {
-        o = !1
-      }
-      e.addEventListener("touchstart", u, !1), e.addEventListener("touchmove", c, !1), e.addEventListener("touchend", l, !1), e.addEventListener("touchcancel", f, !1), e.addEventListener("mousedown", u, !1), e.addEventListener("mousemove", c, !1), e.addEventListener("mouseup", l, !1), e.addEventListener("mouseout", f, !1), this.destroy = function() {
-        e.removeEventListener("touchstart", u, !1), e.removeEventListener("touchmove", c, !1), e.removeEventListener("touchend", l, !1), e.removeEventListener("touchcancel", f, !1), e.removeEventListener("mousedown", u, !1), e.removeEventListener("mousemove", c, !1), e.removeEventListener("mouseup", l, !1), e.removeEventListener("mouseout", f, !1), e = null
-      }
-    }
-    return t.event.special.tap = {
-      bindType: "click",
-      delegateType: "click"
-    }, e.init = function(e) {
-      return (e = "string" == typeof e ? t(e).get(0) : e) ? new i(e) : null
-    }, e.instance = e.init(document), e
-  })
-}, function(t, e, n) {
-  "use strict";
-  var i = n(2)(n(12)),
-    r = n(0);
-  r.define("forms", t.exports = function(t, e) {
-    var n, o, a, s, u, c = {},
-      l = t(document),
-      f = window.location,
-      d = window.XDomainRequest && !window.atob,
-      h = ".w-form",
-      p = /e(-)?mail/i,
-      v = /^\S+@\S+$/,
-      m = window.alert,
-      w = r.env(),
-      g = /list-manage[1-9]?.com/i,
-      b = e.debounce(function() {
-        m("Oops! This page has improperly configured forms. Please contact your website administrator to fix this issue.")
-      }, 100);
-
-    function y(e, n) {
-      var i = t(n),
-        r = t.data(n, h);
-      r || (r = t.data(n, h, {
-        form: i
-      })), x(r);
-      var a = i.closest("div.w-form");
-      r.done = a.find("> .w-form-done"), r.fail = a.find("> .w-form-fail"), r.fileUploads = a.find(".w-file-upload"), r.fileUploads.each(function(e) {
-        ! function(e, n) {
-          if (!n.fileUploads || !n.fileUploads[e]) return;
-          var i, r = t(n.fileUploads[e]),
-            o = r.find("> .w-file-upload-default"),
-            a = r.find("> .w-file-upload-uploading"),
-            s = r.find("> .w-file-upload-success"),
-            c = r.find("> .w-file-upload-error"),
-            l = o.find(".w-file-upload-input"),
-            f = o.find(".w-file-upload-label"),
-            d = f.children(),
-            h = c.find(".w-file-upload-error-msg"),
-            p = s.find(".w-file-upload-file"),
-            v = s.find(".w-file-remove-link"),
-            m = p.find(".w-file-upload-file-name"),
-            g = h.attr("data-w-size-error"),
-            b = h.attr("data-w-type-error"),
-            y = h.attr("data-w-generic-error");
-          if (w) l.on("click", function(t) {
-            t.preventDefault()
-          }), f.on("click", function(t) {
-            t.preventDefault()
-          }), d.on("click", function(t) {
-            t.preventDefault()
-          });
-          else {
-            v.on("click", function() {
-              l.removeAttr("data-value"), l.val(""), m.html(""), o.toggle(!0), s.toggle(!1)
-            }), l.on("change", function(r) {
-              (i = r.target && r.target.files && r.target.files[0]) && (o.toggle(!1), c.toggle(!1), a.toggle(!0), m.text(i.name), L() || k(n), n.fileUploads[e].uploading = !0, function(e, n) {
-                var i = {
-                  name: e.name,
-                  size: e.size
-                };
-                t.ajax({
-                  type: "POST",
-                  url: u,
-                  data: i,
-                  dataType: "json",
-                  crossDomain: !0
-                }).done(function(t) {
-                  n(null, t)
-                }).fail(function(t) {
-                  n(t)
-                })
-              }(i, O))
-            });
-            var E = f.outerHeight();
-            l.height(E), l.width(1)
-          }
-
+  
           function _(t) {
             var i = t.responseJSON && t.responseJSON.msg,
               r = y;
             "string" == typeof i && 0 === i.indexOf("InvalidFileTypeError") ? r = b : "string" == typeof i && 0 === i.indexOf("MaxFileSizeError") && (r = g), h.text(r), l.removeAttr("data-value"), l.val(""), a.toggle(!1), o.toggle(!0), c.toggle(!0), n.fileUploads[e].uploading = !1, L() || x(n)
           }
 
-          function O(e, n) {
-            if (e) return _(e);
-            var r = n.fileName,
-              o = n.postData,
-              a = n.fileId,
-              s = n.s3Url;
-            l.attr("data-value", a),
-              function(e, n, i, r, o) {
-                var a = new FormData;
-                for (var s in n) a.append(s, n[s]);
-                a.append("file", i, r), t.ajax({
-                  type: "POST",
-                  url: e,
-                  data: a,
-                  processData: !1,
-                  contentType: !1
-                }).done(function() {
-                  o(null)
-                }).fail(function(t) {
-                  o(t)
-                })
-              }(s, o, i, r, A)
-          }
+       
 
           function A(t) {
             if (t) return _(t);
@@ -1483,10 +1371,6 @@
       r.handler = null, r.redirect = i.attr("data-redirect"), g.test(s) ? r.handler = O : s || (o ? r.handler = E : b())
     }
 
-    function x(t) {
-      var e = t.btn = t.form.find(':input[type="submit"]');
-      t.wait = t.btn.attr("data-wait") || null, t.success = !1, e.prop("disabled", !1), t.label && e.val(t.label)
-    }
 
     function k(t) {
       var e = t.btn,
@@ -1519,40 +1403,7 @@
       L(t), A(t)
     }
 
-    function O(n) {
-      x(n);
-      var i = n.form,
-        r = {};
-      if (!/^https/.test(f.href) || /^https/.test(n.action)) {
-        L(n);
-        var o, a = E(i, r);
-        if (a) return m(a);
-        k(n), e.each(r, function(t, e) {
-          p.test(e) && (r.EMAIL = t), /^((full[ _-]?)?name)$/i.test(e) && (o = t), /^(first[ _-]?name)$/i.test(e) && (r.FNAME = t), /^(last[ _-]?name)$/i.test(e) && (r.LNAME = t)
-        }), o && !r.FNAME && (o = o.split(" "), r.FNAME = o[0], r.LNAME = r.LNAME || o[1]);
-        var s = n.action.replace("/post?", "/post-json?") + "&c=?",
-          u = s.indexOf("u=") + 2;
-        u = s.substring(u, s.indexOf("&", u));
-        var c = s.indexOf("id=") + 3;
-        c = s.substring(c, s.indexOf("&", c)), r["b_" + u + "_" + c] = "", t.ajax({
-          url: s,
-          data: r,
-          dataType: "jsonp"
-        }).done(function(t) {
-          n.success = "success" === t.result || /already/.test(t.msg), n.success || console.info("MailChimp error: " + t.msg), A(n)
-        }).fail(function() {
-          A(n)
-        })
-      } else i.attr("method", "post")
-    }
-
-    function A(t) {
-      var e = t.form,
-        n = t.redirect,
-        i = t.success;
-      i && n ? r.location(n) : (t.done.toggle(i), t.fail.toggle(!i), e.toggle(!i), x(t))
-    }
-
+    
     function L(t) {
       t.evt && t.evt.preventDefault(), t.evt = null
     }
